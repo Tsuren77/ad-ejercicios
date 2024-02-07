@@ -1,0 +1,19 @@
+services:
+  mongo:
+    restart: always
+    image: mongo:6.0.13-jammy
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: testdb
+
+## Comandos desde mongosh
+# test> use admin
+# switched to db admin
+# admin> db.auth("root","example")
+# { ok: 1 }
+# admin> use dbtest
+# switched to db dbtest
+# dbtest> show collections
